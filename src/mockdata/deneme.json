@@ -1,0 +1,58 @@
+[
+    {
+        "id": 234,
+        "text": "1",
+        "machineName": "A1",
+        "faultsType":"M2",
+        "priority": "1.Derece",
+        "date": "16/03/1992"
+    },
+    {
+        "id": 235,
+        "text": "2",
+        "machineName": "A2",
+        "faultsType":"M2",
+        "priority": "2.Derece",
+        "date": "16/03/1992"
+    },
+    {
+        "id": 236,
+        "text": "3",
+        "machineName": "A3",
+        "faultsType":"M2",
+        "priority": "3.Derece",
+        "date": "16/03/1992"
+    },
+    {
+        "id": 237,
+        "text": "4 ",
+        "machineName": "A4",
+        "faultsType":"M2",
+        "priority": "1.Derece",
+        "date": "16/03/1992"
+    },
+    {
+        "id": 238,
+        "text": "5",
+        "machineName": "A5",
+        "faultsType":"M2",
+        "priority": "1.Derece",
+        "date": "16/03/1992"
+    },
+    {
+        "id": 239,
+        "text": "dasdasfsdgvsd",
+        "machineName": "A6",
+        "faultsType":"M2",
+        "priority": "1.Derece",
+        "date": "16/03/1992"
+    },
+    {
+        "id": 240,
+        "text": "aj133",
+        "machineName": "A7",
+        "faultsType":"M2",
+        "priority": "1.Derece",
+        "date": "16/03/1992"
+    }
+]
