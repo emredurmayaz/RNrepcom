@@ -16,24 +16,13 @@ export default async function getToken(email, password) {
       })
     });
     const responseJson = await response.json();
-    console.log('===============response=====================');
-    console.log(response);
-    console.log('====================================');
-    console.log('====================================');
-    console.log(responseJson);
-    console.log('====================================');
     await setToken(responseJson);
 
     return responseJson;
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 }
 
 async function setToken(res) {
-  console.log('=================res===================');
-  console.log(res);
-  console.log('====================================');
   if (res && res.token) {
     await setItem(STORAGE_KEYS.TOKEN, res.token);
   }

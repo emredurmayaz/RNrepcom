@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, TextInput, Dimensions } from 'react-native';
-import { setItem, STORAGE_KEYS } from '../services/StorageService';
+import { Alert, TouchableOpacity, Text, StyleSheet, TextInput, Dimensions } from 'react-native';
+import { setItem, STORAGE_KEYS, removeItem } from '../services/StorageService';
 import LinearGradient from 'react-native-linear-gradient';
 import getToken from '../api/TokenService';
+import { NavigationEvents } from 'react-navigation';
 
 const { width, height } = Dimensions.get('window');
 
@@ -10,28 +11,33 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'buraksari1993@gmail.com',
-      password: 'Test123*'
+      email: '',
+      password: ''
     };
   }
 
-  login = async () => {
-    console.log('====================================');
-    console.log(this.state.email);
-    console.log('====================================');
-    const res = await getToken(this.state.email, this.state.password);
+  componentWillMount() {
+    removeItem(STORAGE_KEYS.TOKEN);
+  }
 
+  login = async () => {
+    const res = await getToken(this.state.email, this.state.password);
     if (res && res.token) {
       this.props.navigation.navigate('tabNav');
+    } else {
+      Alert.alert('Hata', 'Email ve Şifrenizi kontrol ediniz', [{ text: 'Tamam' }], {
+        cancelable: false
+      });
     }
   };
 
   render() {
-    console.log('====================================');
-    console.log(this.state.email);
-    console.log('====================================');
     return (
       <LinearGradient colors={['rgba(100, 182, 172, 1)', '#34495e']} style={styles.linearGradient}>
+        <NavigationEvents
+          onWillFocus={payload => this.componentWillMount()}
+          //   onDidFocus={payload => console.log('did focus', payload)}
+        />
         <TextInput
           placeholder="e-mail"
           value={this.state.email}
