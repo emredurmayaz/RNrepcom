@@ -16,8 +16,9 @@ class Login extends Component {
     };
   }
 
-  componentWillMount() {
-    removeItem(STORAGE_KEYS.TOKEN);
+  async componentWillMount() {
+    await removeItem(STORAGE_KEYS.TOKEN);
+    await removeItem(STORAGE_KEYS.PERSONNEL_ID);
   }
 
   login = async () => {
